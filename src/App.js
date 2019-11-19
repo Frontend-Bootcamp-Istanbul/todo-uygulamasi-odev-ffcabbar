@@ -97,15 +97,14 @@ class App extends Component {
             </div>
 
             <TodoList
-                // Mutate yapmamak için filter kullandık ve rest operatörü ile ilk baştaki state'i kopyaladım.
-                title = {`Tamamlanmamış Todolar (${[...this.state.todos].filter(todo => todo.checked === false).length})`}
-                todos={[...this.state.todos].filter(todo => todo.checked === false)}
+                title = "Tamamlanmamış Todolar"
+                todos={this.state.todos.filter(todo => todo.checked === false)}
                 onTodoRemove={this.removeTodo}
                 onCheckedToggle={this.toggleCompleteStatus} />
 
             <TodoList
-                title = {`Tamamlanmış Todolar (${[...this.state.todos].filter(todo => todo.checked === true).length})`}
-                todos={[...this.state.todos].filter(todo => todo.checked === true)}
+                title = "Tamamlanmış Todolar"
+                todos={this.state.todos.filter(todo => todo.checked === true)}
                 onTodoRemove={this.removeTodo}
                 onCheckedToggle={this.toggleCompleteStatus} />
         </div>
